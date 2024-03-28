@@ -85,8 +85,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
         FHIR.oauth2.ready()
-    .then(client => client.request("Patient"))
-    .then(console.log)
+    .then(client => client.request("/personnel?id=12742069"))
+    .then(data=>console.log(data))
     .catch(console.error);
     </script>
   </body>
