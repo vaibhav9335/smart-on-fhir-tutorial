@@ -105,6 +105,7 @@
     //     console.error('Authorization response not found in session storage.');
     // }
 }
+      }
         FHIR.oauth2.ready()
     .then(client => client.request("/personnel?id=12742069"))
     .then(data=>console.log(data))
