@@ -84,31 +84,31 @@
     <!-- <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
-//       function callReady() {
+      function callReady() {
     
-//     const storedResponse = sessionStorage.getItem('authorizationResponse');
+    const storedResponse = sessionStorage.getItem('authorizationResponse');
     
-//     if (storedResponse) {
+    if (storedResponse) {
        
-//         const authorizationResponse = JSON.parse(storedResponse);
+        const authorizationResponse = JSON.parse(storedResponse);
         
        
-//         FHIR.oauth2.ready(authorizationResponse)
-//             .then(client => {
-              
-//                 client.request("/personnel?id=12742069")
-//                     .then(data => console.log(data))
-//                     .catch(console.error);
-//             })
-//             .catch(console.error);
-//     } else {
-//         console.error('Authorization response not found in session storage.');
-//     }
-// }
         FHIR.oauth2.ready()
-    .then(client => client.request("/personnel?id=12742069"))
-    .then(data=>console.log(data))
-    .catch(console.error);
+            .then(client => {
+              
+                client.request("/personnel?id=12742069")
+                    .then(data => console.log(data))
+                    .catch(console.error);
+            })
+            .catch(console.error);
+    } else {
+        console.error('Authorization response not found in session storage.');
+    }
+}
+    //     FHIR.oauth2.ready()
+    // .then(client => client.request("/personnel?id=12742069"))
+    // .then(data=>console.log(data))
+    // .catch(console.error);
     </script>
   </body>
 </html>
