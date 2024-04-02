@@ -103,7 +103,7 @@
 // }
       
         FHIR.oauth2.ready()
-    .then(client => client.request("https://api.cernermillennium.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/personnel/20240101/personnel/12742069"))
+    .then(client => client.request("https://api.cernermillennium.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/personnel/20240101/personnel?id=12742069"))
     .then(data=>console.log(data))
     .catch(console.error);
     </script>
