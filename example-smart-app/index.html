@@ -93,22 +93,22 @@
         const authorizationResponse = JSON.parse(storedResponse);
         
        
-        FHIR.oauth2.ready()
-            .then(client => {
-              
-                client.request("/personnel?id=12742069")
-                    .then(data => console.log(data))
-                    .catch(console.error);
-            })
-            .catch(console.error);
-    } else {
-        console.error('Authorization response not found in session storage.');
-    }
-}
     //     FHIR.oauth2.ready()
-    // .then(client => client.request("/personnel?id=12742069"))
-    // .then(data=>console.log(data))
-    // .catch(console.error);
+    //         .then(client => {
+              
+    //             client.request("/personnel?id=12742069")
+    //                 .then(data => console.log(data))
+    //                 .catch(console.error);
+    //         })
+    //         .catch(console.error);
+    // } else {
+    //     console.error('Authorization response not found in session storage.');
+    // }
+}
+        FHIR.oauth2.ready()
+    .then(client => client.request("/personnel?id=12742069"))
+    .then(data=>console.log(data))
+    .catch(console.error);
     </script>
   </body>
 </html>
