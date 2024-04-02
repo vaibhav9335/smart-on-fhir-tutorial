@@ -29,33 +29,33 @@
         'client_id': 'a6419111-8332-4975-b6fc-4f0842e692bb',
         'scope':  'oraclehealth:millennium:personnel launch online_access openid profile'
       })
-      .then
-      (response=>{
-        sessionStorage.setItem('authorizationResponse',JSON.stringify(response))
-       callReady();
-      })
+      // .then
+      // (response=>{
+      //   sessionStorage.setItem('authorizationResponse',JSON.stringify(response))
+      //  callReady();
+      // })
 
-      function callReady() {
+//       function callReady() {
     
-    const storedResponse = sessionStorage.getItem('authorizationResponse');
+//     const storedResponse = sessionStorage.getItem('authorizationResponse');
     
-    if (storedResponse) {
+//     if (storedResponse) {
        
-        const authorizationResponse = JSON.parse(storedResponse);
+//         const authorizationResponse = JSON.parse(storedResponse);
         
        
-        FHIR.oauth2.ready(authorizationResponse)
-            .then(client => {
+//         FHIR.oauth2.ready(authorizationResponse)
+//             .then(client => {
               
-                client.request("/personnel?id=12742069")
-                    .then(data => console.log(data))
-                    .catch(console.error);
-            })
-            .catch(console.error);
-    } else {
-        console.error('Authorization response not found in session storage.');
-    }
-}
+//                 client.request("/personnel?id=12742069")
+//                     .then(data => console.log(data))
+//                     .catch(console.error);
+//             })
+//             .catch(console.error);
+//     } else {
+//         console.error('Authorization response not found in session storage.');
+//     }
+// }
     </script>
     <div class="spinner">
       <div class="bounce1"></div>
