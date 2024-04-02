@@ -31,8 +31,8 @@
       })
       .then
       (response=>{
-        //sessionStorage.setItem('authorizationResponse',JSON.stringify(response))
-       callReady();
+        sessionStorage.setItem('authorizationResponse',JSON.stringify(response))
+       //callReady();
       })
 
 //       function callReady() {
