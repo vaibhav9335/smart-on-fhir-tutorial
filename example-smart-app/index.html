@@ -105,7 +105,7 @@
       
       const launchURL = new URL(localStorage.getItem("launchURL"));
       console.log("url="+launchURL);
-      const iss = launchURL1.searchParams.get("iss");
+      const iss = launchURL.searchParams.get("iss");
       const tenant = iss.split('%').pop();
       const tokenURI = "https://authorization.cerner.com/tenants/"+tenant+"/hosts/api.cernermillennium.com/protocols/oauth2/profiles/smart-v1/token";
     FHIR.oauth2.ready()
