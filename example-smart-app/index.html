@@ -101,8 +101,8 @@
 //         console.error('Authorization response not found in session storage.');
 //     }
 // }
-     
-      
+       
+      const appURL = window.location.href;
       const launchURL = new URL(localStorage.getItem("launchURL"));
       console.log("url="+launchURL);
       const iss = launchURL.searchParams.get("iss");
