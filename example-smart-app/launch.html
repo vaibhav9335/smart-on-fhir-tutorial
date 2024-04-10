@@ -25,14 +25,22 @@
     <!-- https://github.com/cerner/fhir-client-cerner-additions -->
     <!-- <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script> -->
     <script>
-      const link= window.location.href;
-      console.log("log="+link);
-      FHIR.oauth2.authorize({
-        'client_id': 'a6419111-8332-4975-b6fc-4f0842e692bb',
-        'scope':  'oraclehealth:millennium:personnel launch online_access openid profile'
-      })
-      
-    </script>
+      // Function to perform OAuth2 authorization
+      function authorizeWithFHIR() {
+          // Get the current page's URL
+          const link = window.location.href;
+          console.log("log=" + link);
+          
+          // Perform OAuth2 authorization with FHIR server
+          FHIR.oauth2.authorize({
+              'client_id': 'a6419111-8332-4975-b6fc-4f0842e692bb',
+              'scope': 'oraclehealth:millennium:personnel launch online_access openid profile'
+          });
+      }
+
+      // Call the function when the page loads
+      window.onload = authorizeWithFHIR;
+  </script>
     <div class="spinner">
       <div class="bounce1"></div>
       <div class="bounce2"></div>
