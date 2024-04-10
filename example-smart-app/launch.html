@@ -30,7 +30,7 @@
           // Get the current page's URL
           const link = window.location.href;
           console.log("log=" + link);
-          localStorage.setItem("link",link)
+          localStorage.setItem("launchURL",link)
           
           // Perform OAuth2 authorization with FHIR server
           FHIR.oauth2.authorize({
