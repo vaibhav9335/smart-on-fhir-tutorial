@@ -102,14 +102,11 @@
 //     }
 // }
      
-      const launchURL= new URLSearchParams(localStorage.getItem("launchURL")).get("iss");
-      const launchURL1 = new URL(localStorage.getItem("launchURL"));
-      console.log(launchURL);
-      console.log("url="+launchURL1);
-      const iss = launchURL.get("iss");
-      const iss1 = launchURL1.searchParams.get("iss");
-      const tenant1 = iss1.split('%').pop();
-      const tenant= iss.split('%').pop();
+      
+      const launchURL = new URL(localStorage.getItem("launchURL"));
+      console.log("url="+launchURL);
+      const iss = launchURL1.searchParams.get("iss");
+      const tenant = iss.split('%').pop();
       const tokenURI = "https://authorization.cerner.com/tenants/"+tenant+"/hosts/api.cernermillennium.com/protocols/oauth2/profiles/smart-v1/token";
     FHIR.oauth2.ready()
     .then(client => client.request("https://api.cernermillennium.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/personnel/20240101/personnel?id=12742069"))
