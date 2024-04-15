@@ -102,12 +102,13 @@
 //     }
 // }
        
-      const appURL = window.location.href.searchParams.get("code");
+      const appURL = window.location.href;
       const launchURL = new URL(localStorage.getItem("launchURL"));
       console.log("url="+launchURL);
       const iss = launchURL.searchParams.get("iss");
+      const authURL=appURL.searchParams.get("code");
       const tenant = iss.split('/').pop();
-      const authCode = appURL.split('/').pop();
+      const auth=authURL.split('/').pop();
       const tokenURI = "https://authorization.cerner.com/tenants/"+tenant+"/hosts/api.cernermillennium.com/protocols/oauth2/profiles/smart-v1/token";
     </script>
   </body>
