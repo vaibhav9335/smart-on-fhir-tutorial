@@ -114,13 +114,20 @@
 
 
 // Construct the request body
+const requestBody = new URLSearchParams();
+requestBody.append("grant_type", "authorization_code");
+requestBody.append("code", authCode); // Corrected variable name
+requestBody.append("redirect_uri", "https://vaibhav9335.github.io/smart-on-fhir-tutorial/example-smart-app/");
+requestBody.append("client_id", "a6419111-8332-4975-b6fc-4f0842e692bb");
+
+// Make the POST request to obtain the access token
 fetch(tokenURI, {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/x-www-form-urlencoded'
   },
-  body: 'grant_type=authorization_code&code=auth&redirect_uri=https://vaibhav9335.github.io/smart-on-fhir-tutorial/example-smart-app/&client_id=a6419111-8332-4975-b6fc-4f0842e692bb'
+  body: requestBody
 })
 .then(response => {
   if (!response.ok) {
