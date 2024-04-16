@@ -111,6 +111,29 @@
       const tenant = iss.split('/').pop();
       const auth=authURL.split('/').pop();
       const tokenURI = "https://authorization.cerner.com/tenants/"+tenant+"/hosts/api.cernermillennium.com/protocols/oauth2/profiles/smart-v1/token";
+
+
+// Construct the request body
+fetch(tokenURI, {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  body: 'grant_type=authorization_code&code=auth&redirect_uri=https://vaibhav9335.github.io/smart-on-fhir-tutorial/example-smart-app/&client_id=a6419111-8332-4975-b6fc-4f0842e692bb'
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
+.then(data => {
+  console.log('Access token:', data.access_token);
+})
+.catch(error => {
+  console.error('There was a problem with the fetch operation:', error);
+});
     </script>
   </body>
 </html>
