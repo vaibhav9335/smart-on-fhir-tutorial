@@ -109,7 +109,7 @@
       const iss = launchURL.searchParams.get("iss");
       const authURL=appURL.searchParams.get("code");
       const tenant = iss.split('/').pop();
-      const auth=authURL.split('/').pop();
+      const authCode=authURL.split('/').pop();
       const tokenURI = "https://authorization.cerner.com/tenants/"+tenant+"/hosts/api.cernermillennium.com/protocols/oauth2/profiles/smart-v1/token";
 
 
