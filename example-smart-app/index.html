@@ -120,6 +120,10 @@
       const requestBody = new URLSearchParams();
       requestBody.append("grant_type", "authorization_code");
       requestBody.append("code", authCode);
+      requestBody.append(
+        "redirect_uri",
+        "https://vaibhav9335.github.io/smart-on-fhir-tutorial/example-smart-app/"
+      );
       requestBody.append("client_id", "a6419111-8332-4975-b6fc-4f0842e692bb");
 
       fetch(tokenURI, {
