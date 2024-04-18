@@ -125,7 +125,7 @@
         "https://vaibhav9335.github.io/smart-on-fhir-tutorial/example-smart-app/"
       );
       requestBody.append("client_id", "a6419111-8332-4975-b6fc-4f0842e692bb");
-
+      const access_token = 0;
       fetch(tokenURI, {
         method: "POST",
         headers: {
@@ -143,9 +143,36 @@
         })
         .then((data) => {
           console.log("Access token:", data.access_token);
+          access_token = data.access_token;
         })
         .catch((error) => {
           console.error("There was a problem with the fetch operation:", error);
+        });
+
+      const ehrURI =
+        "https://api.cernermillennium.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/personnel/20240101/personnel/1";
+
+      fetch(ehrURI, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok in api");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(
+            "There was a problem with your fetch operation:",
+            error
+          );
         });
     </script>
   </body>
